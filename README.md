@@ -28,9 +28,10 @@ You can now access the ui at `http://localhost:2902/`.
 
 - To get list of available default voice models, Send a GET request to `http://localhost:2902/list-models`
 - To get list of available clone voices, Send a GET request to `/list-voices`
-- To use a default voice model, send a POST request to `http://localhost:2902/use-model` with `{prompt, apiKey, speaker}`
-- To generate with a cloned voice, send a POST request to `http://localhost:2902/use-voice` with `{prompt, apiKey, speaker}`
+- To use a default voice model, send a POST request to `http://localhost:2902/use-model` with `{prompt: string, apiKey: string, speaker: string, forceDownload: boolean}`
+- To generate with a cloned voice, send a POST request to `http://localhost:2902/use-voice` with `{prompt: string, apiKey: string, speaker: string, forceDownload: boolean}`
 - Check server/index.html for example usage of the endpoints
+- forceDownload will make the server return a downloadable stream if true or json with filename property if false. (See server/index.html)
 
 ### Voice Cloning
 
