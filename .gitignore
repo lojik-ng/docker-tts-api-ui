@@ -133,3 +133,4 @@ models/*/*
 *.mp3
 **.mp3
 **keys.json
+server/keys.json
