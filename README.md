@@ -15,7 +15,7 @@ git clone git@github.com:lojik-ng/docker-tts-api-ui.git
 cd docker-tts-api-ui
 npm install
 docker build -t docker-tts-api-ui .
-docker run -d -it -p 2902:2902 --gpus all -v .:/shared -v ./models:/root/.local/share/tts --name docker-tts-api-ui docker-tts-api-ui
+docker run -d -it -p 2902:2902 --gpus all  --restart=unless-stopped -v .:/shared -v ./models:/root/.local/share/tts --name docker-tts-api-ui docker-tts-api-ui
 ```
 
 You can now access the ui at `http://localhost:2902/`.
