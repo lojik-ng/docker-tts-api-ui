@@ -128,5 +128,7 @@ dist
 
 *.wav
 **.wav
-models/*
-logs/*
+models/*/*
+*.log
+*.mp3
+**.mp3
