@@ -56,3 +56,9 @@ You can now access the ui at `http://localhost:2902/`.
 - Returns mp3 files. I bundled it with ffmpeg to convert the generated .wav file into mp3 before sending. If you prefer .wav or any other audio file type, modify `server/index.js`
 - Authentication: You can add as many users and ban users just by editing the `server/keys.json` file.
 - Logging: It logs all user requests, errors etc.
+
+## Credits
+
+- This software uses libraries from the [FFmpeg](http://ffmpeg.org) project under the [LGPLv2.1](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
+- This software uses [Coqui TTS](https://github.com/coqui-ai/TTS)
+  ss
