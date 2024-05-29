@@ -4,7 +4,7 @@
 
 Docker container for xttsV2 with API, UI & voice cloning.
 This project is based on Coqui-TTS to make AI text to speech and voice cloning simple to install using docker.
-Seeing that most AI projects require python knowledge to deploy, i decided to write use NodeJS/Javascript to create a simple to use AI Text to speech API. If you clone good quality voices, you'll get eleven labs quality. I found out that using 10 minutes of continous speech as a voice to clone gave me amazing Eleven labs quality results. You can clone with as short as 60 seconds audio but i found 10 minutes as the sweet spot that gave me the best results. Use [podcast.adobe.com/enhance](https://podcast.adobe.com/enhance) to clean any audio you want to clone.
+Seeing that most AI projects require python sknowledge to deploy, i decided to write use NodeJS/Javascript to create a simple to use AI Text to speech API. If you clone good quality voices, you'll get eleven labs quality. I found out that using 10 minutes of continous speech as a voice to clone gave me amazing Eleven labs quality results. You can clone with as short as 60 seconds audio but i found 10 minutes as the sweet spot that gave me the best results. Use [podcast.adobe.com/enhance](https://podcast.adobe.com/enhance) to clean any audio you want to clone.
 
 ## Installation
 
@@ -14,8 +14,8 @@ After installation, the TTS engine may take some time to start up as it needs to
 git clone git@github.com:lojik-ng/docker-tts-api-ui.git
 cd docker-tts-api-ui
 npm install
-docker build -t tts .
-docker run -d -it -p 2902:2902 --gpus all -v .:/shared --name tts tts
+docker build -t docker-tts-api-ui .
+docker run -d -it -p 2902:2902 --gpus all -v .:/shared -v ./models:/root/.local/share/tts --name docker-tts-api-ui docker-tts-api-ui
 ```
 
 You can now access the ui at `http://localhost:2902/`.

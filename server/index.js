@@ -46,7 +46,7 @@ app.post('/use-model', (req, res) => {
     const filePath = '/shared/' + filename;
 
     const cmd = `tts --model_name tts_models/multilingual/multi-dataset/xtts_v2 \
-    --text "${prompt.split('"').join('\"')}" \
+    --text "${prompt}" \
     --out_path "${filePath}" \
     --speaker_idx "${speaker}" \
     --language_idx ${language || 'en'} \
@@ -119,7 +119,7 @@ app.post('/use-voice', (req, res) => {
     // const cmd = `melo "${prompt}" ${filename} --language ${language || 'EN'} --speaker ${speaker || 'EN-BR'} --speed ${+speed || 0.8}`;
 
     const cmd = `tts --model_name tts_models/multilingual/multi-dataset/xtts_v2 \
-    --text "${prompt.split('"').join('\"')}" \
+    --text "${prompt}" \
     --out_path "${filePath}" \
     --speaker_wav "${modelFile}" \
     --language_idx ${language || 'en'} \
@@ -201,5 +201,5 @@ function uuid() {
 
 function log(msg) {
     const today = DateTime.now().setZone("Africa/Lagos").toISODate();
-    fs.appendFileSync(`/shared/logs/${today}.txt`, `${new Date().toLocaleString()}: ${JSON.stringify(msg)}\n`);
+    fs.appendFileSync(`/shared/logs/${today}.log`, `${new Date().toLocaleString()}: ${JSON.stringify(msg)}\n`);
 }

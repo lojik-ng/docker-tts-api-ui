@@ -127,5 +127,6 @@ dist
 .pnp.*
 
 *.wav
-voices/*
+**.wav
+models/*
 logs/*
