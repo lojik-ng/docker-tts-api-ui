@@ -13,6 +13,7 @@ After installation, the TTS engine may take some time to start up as it needs to
 ```sh
 git clone git@github.com:lojik-ng/docker-tts-api-ui.git
 cd docker-tts-api-ui
+rename server/keys.sample.json server/keys.json
 npm install
 docker build -t docker-tts-api-ui .
 docker run -d -it -p 2902:2902 --gpus all  --restart=unless-stopped -v .:/shared -v ./models:/root/.local/share/tts --name docker-tts-api-ui docker-tts-api-ui
