@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Download Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">TTS Server is Running</h1>
+
+        <!-- Form 1 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Use a Cloned Voice</h4>
+            </div>
+            <div class="card-body">
+                <p>Send a POST request to <code>/use-voice</code> with <code>{prompt, apiKey, speaker}</code></p>
+                <p>To get list of available cloned voices, Send a GET request to <code>/list-voices</code></p>
+                <p>Add .wav voice samples to <code>voices</code> folder to automatically include them as
+                    cloned voices</p>
+                <form action="/use-voice" target="_blank" method="POST">
+                    <div class="mb-3">
+                        <label for="apiKey" class="form-label">API Key</label>
+                        <input type="text" id="apiKey" name="apiKey" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="text1" class="form-label">Prompt/Text</label>
+                        <textarea id="text1" name="prompt" class="form-control" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="voice1" class="form-label">Speaker</label>
+                        <select id="voice1" name="speaker" class="form-select" required>
+                            <option value="">Select A Voice</option>
+                            <!-- Add options here -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Form 2 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Use Default Models</h4>
+            </div>
+            <div class="card-body">
+                <p>Send a POST request to <code>/use-model</code> with <code>{prompt, apiKey, speaker}</code></p>
+                <p>To get list of available default voices, Send a GET request to <code>/list-models</code></p>
+                <form action="/use-model" method="POST">
+                    <div class="mb-3">
+                        <label for="apiKey2" class="form-label">API Key</label>
+                        <input type="text" id="apiKey2" name="apiKey" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="text2" class="form-label">Prompt/Text</label>
+                        <textarea id="text2" name="prompt" class="form-control" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="voice2" class="form-label">Speaker</label>
+                        <select id="voice2" name="speaker" class="form-select" required>
+                            <option value="">Select A Voice</option>
+                            <!-- Add options here -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const voices1 = document.getElementById('voice1');
+        const voices2 = document.getElementById('voice2');
+        // make a get request to /list-voices to get the list of voices
+        fetch('/list-voices')
+            .then(response => response.json())
+            .then(data => {
+                // add the voices to the select options
+                data.speakers.forEach(speaker => {
+                    const option = document.createElement('option');
+                    option.value = speaker;
+                    option.text = speaker;
+                    voices1.appendChild(option);
+                });
+            })
+            .catch(error => console.error(error));
+        // make a get request to /list-models to get the list of voices
+        fetch('/list-models')
+            .then(response => response.json())
+            .then(data => {
+                // add the voices to the select options
+                data.speakers.forEach(speaker => {
+                    const option = document.createElement('option');
+                    option.value = speaker;
+                    option.text = speaker;
+                    voices2.appendChild(option);
+                });
+            })
+            .catch(error => console.error(error));
+    </script>
+</body>
+
+</html>

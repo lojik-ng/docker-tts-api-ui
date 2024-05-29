@@ -1,0 +1,20 @@
+docker build -t tts .
+
+docker run -d -it -p 2902:2902 --gpus all -v .:/shared --name tts --entrypoint /bin/bash tts
+
+
+docker run --d -it -p 5002:5002 --gpus all --entrypoint /bin/bash ghcr.io/coqui-ai/tts
+python3 TTS/server/server.py --list_models #To get the list of available models
+python3 TTS/server/server.py --model_name tts_models/en/vctk/vits --use_cuda true
+
+
+docker run -d -it -p 5002:5002 --gpus all --entrypoint /bin/bash ghcr.io/coqui-ai/tts
+
+
+write an expressjs endpoint that recieves the parameters {
+"text": "...",
+"filename": "...",
+"model":"..."|
+} 
+from a form submisison to the route "/", the looks in the local folder "/shared/voices" for the file with the submitted filename, the sends the file back for download.
+
