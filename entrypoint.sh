@@ -10,8 +10,6 @@ yes y | tts --model_name tts_models/multilingual/multi-dataset/xtts_v2 --text "M
 # Install dependencies
 npm install
 
-rename keys.sample.json keys.json
-
 # Start the application
 npm start
 

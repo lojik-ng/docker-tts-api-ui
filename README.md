@@ -13,6 +13,7 @@ After installation, the TTS engine may take some time to start up as it needs to
 ```sh
 git clone git@github.com:lojik-ng/docker-tts-api-ui.git
 cd docker-tts-api-ui
+rename server/keys.sample.json server/keys.json
 docker build -t docker-tts-api-ui .
 docker run -d -it -p 2902:2902 --gpus all  --restart=unless-stopped -v .:/shared -v ./models:/root/.local/share/tts --name docker-tts-api-ui docker-tts-api-ui
 ```
@@ -61,4 +62,3 @@ You can now access the ui at `http://localhost:2902/`.
 
 - This software uses libraries from the [FFmpeg](http://ffmpeg.org) project under the [LGPLv2.1](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
 - This software uses [Coqui TTS](https://github.com/coqui-ai/TTS)
-  ss
