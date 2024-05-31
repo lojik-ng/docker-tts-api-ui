@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo chmod -R a+rw /shared
+
 # Navigate to the working directory
 cd /shared/server
 
