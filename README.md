@@ -11,7 +11,7 @@ Seeing that most AI projects require python sknowledge to deploy, i decided to w
 After installation, the TTS engine may take some time to start up as it needs to download the models. This is one-time only.
 
 ```sh
-git clone git@github.com:lojik-ng/docker-tts-api-ui.git
+git clone https://github.com/lojik-ng/docker-tts-api-ui.git
 cd docker-tts-api-ui
 rename server/keys.sample.json server/keys.json
 docker build -t docker-tts-api-ui .
